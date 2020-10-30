@@ -10,4 +10,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: checkout
-        run: echo ${{ secrets.NAME }}
+        run: |
+          echo ${{ github.ref }}
+          echo ${{ github.sha }}
