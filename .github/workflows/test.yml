@@ -12,7 +12,7 @@ jobs:
       - name: test
         if: github.event_name == 'pull_request_target'
         run: |
-          echo ${{ github.event.pull_request.number }}
+          echo pull/${{ github.event.pull_request.number }}/merge
           echo ${{ github.event.pull_request.head.sha }}
 
       - name: test
