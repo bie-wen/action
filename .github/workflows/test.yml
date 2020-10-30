@@ -14,3 +14,4 @@ jobs:
           echo ${{ github.ref }}
           echo ${{ github.sha }}
           echo ${GITHUB_SHA}
+          echo ${{ toJson(github) }}
