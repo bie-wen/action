@@ -9,9 +9,19 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-      - name: checkout
+      - name: set-env
+        env:
+          BRANCH_NAME: 123
+          COMMIT_ID: 321
+        if: github.event.event_name == 'pull_request_target'
+
+      - name: set-env
+        env:
+          BRANCH_NAME: 456
+          COMMIT_ID: 654
+        if: github.event.event_name == 'pull_request_target'
+
+      - name: test
         run: |
-          echo ${{ github.ref }}
-          echo ${{ github.sha }}
-          echo ${GITHUB_SHA}
-          echo ${{ toJson(github) }}
+          echo ${BRANCH_NAME}
+          echo ${{ COMMIT_ID }}
