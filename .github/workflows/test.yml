@@ -21,4 +21,4 @@ jobs:
         uses: actions/checkout@master
 
       - name: test
-        run: echo ${{ fromJson(github) }}
+        run: echo ${{ toJSON(github) }}
